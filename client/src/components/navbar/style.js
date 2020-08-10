@@ -9,5 +9,8 @@ export const useStyles = makeStyles({
     textDecoration: "none",
     color: "white",
   },
-  login: { display: "flex", alignItems: "center" },
+  login: {
+    display: "flex",
+    alignItems: "center",
+  },
 });

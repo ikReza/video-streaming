@@ -2,8 +2,12 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { Button, Box, LinearProgress, Grid } from "@material-ui/core";
 import { TextField } from "formik-material-ui";
+import { useDispatch } from "react-redux";
+import { createStream } from "../../../redux/actions/streamActions";
 
 const StreamCreate = () => {
+  const dispatch = useDispatch();
+
   return (
     <Formik
       initialValues={{
@@ -28,6 +32,7 @@ const StreamCreate = () => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           setSubmitting(false);
+          dispatch(createStream(values));
         }, 500);
       }}
     >

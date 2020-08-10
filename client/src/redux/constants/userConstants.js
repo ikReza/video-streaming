@@ -1,2 +1,7 @@
 export const USER_SIGNIN = "USER_SIGNIN";
 export const USER_SIGNOUT = "USER_SIGNOUT";
+export const CREATE_STREAM = "CREATE_STREAM";
+export const FETCH_STREAMS = "FETCH_STREAMS";
+export const FETCH_STREAM = "FETCH_STREAM";
+export const EDIT_STREAM = "EDIT_STREAM";
+export const DELETE_STREAM = "DELETE_STREAM";

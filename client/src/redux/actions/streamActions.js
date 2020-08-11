@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as actions from "../constants/userConstants";
+import history from "../../history";
 
 export const createStream = (formValues) => async (dispatch, getState) => {
   const {
@@ -14,6 +15,7 @@ export const createStream = (formValues) => async (dispatch, getState) => {
     googleId,
   });
   dispatch({ type: actions.CREATE_STREAM, payload: data });
+  history.push("/");
 };
 
 export const getStreams = () => async (dispatch) => {

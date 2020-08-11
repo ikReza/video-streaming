@@ -39,7 +39,12 @@ const Home = () => {
           >
             Edit
           </Button>
-          <Button size="small" className={classes.deleteBtn}>
+          <Button
+            component={Link}
+            to={`streams/delete/${stream.id}`}
+            size="small"
+            className={classes.deleteBtn}
+          >
             Delete
           </Button>
         </div>
@@ -64,7 +69,12 @@ const Home = () => {
                 <Videocam />
               </div>
               <div>
-                <Typography gutterBottom variant="h5">
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component={Link}
+                  to={`/streams/${stream.id}`}
+                >
                   {stream.title}
                 </Typography>
                 <Typography>{stream.description}</Typography>

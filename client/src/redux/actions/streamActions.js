@@ -29,14 +29,16 @@ export const getStream = (id) => async (dispatch) => {
 };
 
 export const editStream = (id, formValues) => async (dispatch) => {
-  const { data } = await axios.put(
+  const { data } = await axios.patch(
     `http://localhost:3001/streams/${id}`,
     formValues
   );
   dispatch({ type: actions.EDIT_STREAM, payload: data });
+  history.push("/");
 };
 
 export const deleteStream = (id) => async (dispatch) => {
   await axios.delete(`http://localhost:3001/streams/${id}`);
   dispatch({ type: actions.DELETE_STREAM, payload: id });
+  history.push("/");
 };

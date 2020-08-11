@@ -2,7 +2,7 @@
   "streams": [
     {
       "title": "gaming",
-      "description": "first streaming",
+      "description": "fixed issues",
       "googleId": "109043039786531862954",
       "id": 1
     },
@@ -17,12 +17,6 @@
       "description": "you'll miss lot if you don't watch it",
       "googleId": "114527531798020295602",
       "id": 3
-    },
-    {
-      "title": "wrong",
-      "description": "mon chay pidai tore",
-      "googleId": "109043039786531862954",
-      "id": 4
     }
   ]
 }

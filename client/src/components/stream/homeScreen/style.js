@@ -1,17 +1,34 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
+  mainHeader: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
+    margin: "2vh 0",
+    fontSize: "40px",
+  },
   stream: {
     padding: "1% 3%",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    marginBottom: "1vh",
+    border: "1px solid grey",
+    borderRadius: "10px",
   },
   videoIcon: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     marginRight: "2vw",
+  },
+  icon: {
+    fontSize: "40px",
+  },
+  streamTitle: {
+    textDecoration: "none",
+    textTransform: "capitalize",
   },
   editBtn: {
     backgroundColor: "#4287f5",
@@ -39,5 +56,12 @@ export const useStyles = makeStyles({
     "&:hover": {
       backgroundColor: "#027a39",
     },
+  },
+  loading: {
+    width: "100vw",
+    height: "90vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

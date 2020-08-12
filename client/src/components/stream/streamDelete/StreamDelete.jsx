@@ -9,11 +9,15 @@ import {
   DialogContentText,
   DialogActions,
   Button,
+  CircularProgress,
 } from "@material-ui/core";
+import { DeleteForever } from "@material-ui/icons";
+import { useStyles } from "./style";
 
 const StreamDelete = (props) => {
   const [open, setOpen] = useState(true);
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const handleClose = () => {
     setOpen(false);
@@ -31,19 +35,27 @@ const StreamDelete = (props) => {
   useEffect(() => {
     dispatch(getStream(props.match.params.id));
     return () => {};
-  }, [dispatch]);
+  }, [dispatch, props.match.params.id]);
 
   if (!stream) {
-    return <div>Loading. .. ...</div>;
+    return (
+      <div className={classes.loading}>
+        <CircularProgress />
+      </div>
+    );
   }
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose}>
+      <div className={classes.iconContainer}>
+        <DeleteForever className={classes.icon} />
+      </div>
+      <Dialog open={open} onClose={handleClose} className={classes.dialog}>
         <DialogTitle>Stream Delete</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Are you sure you want to delete stream with title: {stream.title}
+            Are you sure you want to delete stream with title:{" "}
+            <span className={classes.title}>{stream.title}</span>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

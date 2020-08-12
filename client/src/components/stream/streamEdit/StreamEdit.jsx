@@ -15,7 +15,7 @@ const StreamEdit = (props) => {
   useEffect(() => {
     dispatch(getStream(props.match.params.id));
     return () => {};
-  }, [dispatch]);
+  }, [dispatch, props.match.params.id]);
 
   if (!streamList) {
     return <div>Loading. .. ...</div>;

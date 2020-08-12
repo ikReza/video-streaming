@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getStreams } from "../../../redux/actions/streamActions";
-import { Typography, Grid, Box, Button } from "@material-ui/core";
+import {
+  Typography,
+  Grid,
+  Box,
+  Button,
+  CircularProgress,
+} from "@material-ui/core";
 import { Videocam } from "@material-ui/icons";
 import { useStyles } from "./style";
 
@@ -56,17 +62,10 @@ const Home = () => {
     return (
       <Grid container justify="center">
         {streamList.map((stream, i) => (
-          <Grid
-            component={Box}
-            item
-            xs={11}
-            key={i}
-            border={1}
-            className={classes.stream}
-          >
+          <Grid component={Box} item xs={11} key={i} className={classes.stream}>
             <div style={{ display: "flex" }}>
               <div className={classes.videoIcon}>
-                <Videocam />
+                <Videocam className={classes.icon} />
               </div>
               <div>
                 <Typography
@@ -74,6 +73,7 @@ const Home = () => {
                   variant="h5"
                   component={Link}
                   to={`/streams/${stream.id}`}
+                  className={classes.streamTitle}
                 >
                   {stream.title}
                 </Typography>
@@ -105,9 +105,17 @@ const Home = () => {
     }
   };
 
+  if (!streamList) {
+    return (
+      <div className={classes.loading}>
+        <CircularProgress />
+      </div>
+    );
+  }
+
   return (
     <div>
-      <Typography>Stream Lists</Typography>
+      <Typography className={classes.mainHeader}>Stream Lists</Typography>
       {renderList()}
       {renderCreate()}
     </div>
